@@ -1,7 +1,7 @@
 {
   "Entries": [
     {
-      "RequestUri": "/qnamaker/knowledgebases/8758c6af-fa29-4e03-a517-9c36927f558f/generateAnswer",
+      "RequestUri": "/qnamaker/v5.0-preview.1/knowledgebases/9e65acc2-ce5e-4530-8ce1-abb19b9f66bd/generateAnswer",
       "EncodedRequestUri": "L3FuYW1ha2VyL2tub3dsZWRnZWJhc2VzLzg3NThjNmFmLWZhMjktNGUwMy1hNTE3LTljMzY5MjdmNTU4Zi9nZW5lcmF0ZUFuc3dlcg==",
       "RequestMethod": "POST",
       "RequestBody": "{\r\n  \"question\": \"good afternoon\"\r\n}",

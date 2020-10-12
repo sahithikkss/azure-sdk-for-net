@@ -7,30 +7,18 @@ namespace QnAMaker.Tests
     {
         public static bool IsTestTenant = false;
         private static readonly string QnAMakerSubscriptionKey;
-        private static readonly string QnAMakerEndpointKey;
 
         static BaseTests()
         {
             // Retrieve the configuration information.
-            QnAMakerSubscriptionKey = "";
-            QnAMakerEndpointKey = "";
+            QnAMakerSubscriptionKey = "a0d15e526041495e884f86cc0f3e24fd";
         }
 
         protected IQnAMakerClient GetQnAMakerClient(DelegatingHandler handler)
         {
             IQnAMakerClient client = new QnAMakerClient(new ApiKeyServiceClientCredentials(QnAMakerSubscriptionKey), handlers: handler)
             {
-                Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
-
-            return client;
-        }
-
-        protected IQnAMakerRuntimeClient GetQnAMakerRuntimeClient(DelegatingHandler handler)
-        {
-            IQnAMakerRuntimeClient client = new QnAMakerRuntimeClient(new EndpointKeyServiceClientCredentials(QnAMakerEndpointKey), handlers: handler)
-            {
-                RuntimeEndpoint = "https://myqnamakerapp.azurewebsites.net"
+                Endpoint = "https://qnamakerteambugbash-northeurope-v2.cognitiveservices.azure.com"
             };
 
             return client;

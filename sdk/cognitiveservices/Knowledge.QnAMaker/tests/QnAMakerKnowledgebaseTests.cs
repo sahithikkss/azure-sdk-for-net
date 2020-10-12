@@ -21,7 +21,14 @@ namespace QnAMaker.Tests
                 IQnAMakerClient client = GetQnAMakerClient(HttpMockServer.CreateInstance());
 
                 // Create
-                var createOp = client.Knowledgebase.CreateAsync(new CreateKbDTO { Name = "testqna", QnaList = new List<QnADTO> { new QnADTO { Questions = new List<string> { "hi" }, Answer = "hello" } } }).Result;
+                var createOp = client.Knowledgebase.CreateAsync(new CreateKbDTO 
+                { 
+                    Name = "testqna", 
+                    QnaList = new List<QnADTO> { new QnADTO { Questions = new List<string> { "hi" }, Answer = "hello" } },
+                    Language = "English",
+                    EnableHierarchicalExtraction = true,
+                    DefaultAnswerUsedForExtraction = "Choose from below: "
+                }).Result;
 
                 // Loop while operation is success
                 createOp = OperationHelper.MonitorOperation(createOp, client);

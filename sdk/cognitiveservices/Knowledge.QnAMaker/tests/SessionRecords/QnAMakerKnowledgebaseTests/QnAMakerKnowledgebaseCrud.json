@@ -1,7 +1,7 @@
 {
   "Entries": [
     {
-      "RequestUri": "/qnamaker/v4.0/knowledgebases/create",
+      "RequestUri": "/qnamaker/v5.0-preview.1/knowledgebases/create",
       "EncodedRequestUri": "L3FuYW1ha2VyL3Y0LjAva25vd2xlZGdlYmFzZXMvY3JlYXRl",
       "RequestMethod": "POST",
       "RequestBody": "{\r\n  \"name\": \"testqna\",\r\n  \"qnaList\": [\r\n    {\r\n      \"answer\": \"hello\",\r\n      \"questions\": [\r\n        \"hi\"\r\n      ]\r\n    }\r\n  ]\r\n}",
