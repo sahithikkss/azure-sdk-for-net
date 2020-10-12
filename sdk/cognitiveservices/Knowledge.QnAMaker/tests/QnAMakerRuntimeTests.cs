@@ -16,17 +16,18 @@ namespace QnAMaker.Tests
         {
             using (MockContext context = MockContext.Start(this.GetType()))
             {
-                HttpMockServer.Initialize(this.GetType(), "QnAMakerRuntimeGenerateAnswerTest");
+                HttpMockServer.Initialize(this.GetType(), "QnAMakerRuntimeGenerateAnswerTest", HttpRecorderMode.Record);
 
                 var client = GetQnAMakerClient(HttpMockServer.CreateInstance());
                 var queryDTO = new QueryDTO();
-                queryDTO.Question = "greetings";
+                queryDTO.Question = "tell me";
+                queryDTO.IsTest = true;
                 queryDTO.Top = 3;
                 queryDTO.ScoreThreshold = 60.0;
                 queryDTO.StrictFiltersCompoundOperationType = StrictFiltersCompoundOperationType.OR;
                 queryDTO.StrictFilters = new List<MetadataDTO>();
-                queryDTO.StrictFilters.Add(new MetadataDTO("question", "good afternoon"));
-                queryDTO.StrictFilters.Add(new MetadataDTO("question", "good morning"));
+                queryDTO.StrictFilters.Add(new MetadataDTO("timeoftheday", "morning"));
+                queryDTO.StrictFilters.Add(new MetadataDTO("timeoftheday", "forenoon"));
                 queryDTO.AnswerSpanRequest = new QueryDTOAnswerSpanRequest
                 {
                     Enable = true,
@@ -34,9 +35,15 @@ namespace QnAMaker.Tests
                     TopAnswersWithSpan = 3
                 };
 
-                var answer = client.Knowledgebase.GenerateAnswerAsync("9e65acc2-ce5e-4530-8ce1-abb19b9f66bd", queryDTO).Result;
-                Assert.Equal(1, answer.Answers.Count);
-                Assert.Equal(100, answer.Answers[0].Score);
+                queryDTO.Context = new QueryDTOContext
+                {
+                    PreviousQnaId = -1,
+                    PreviousUserQuery = ""
+                };
+
+                var answer = client.Knowledgebase.GenerateAnswerAsync("c2d2d1f5-1e94-4394-b235-d0f37c7090b0", queryDTO).Result;
+                Assert.Equal(2, answer.Answers.Count);
+                Assert.True(answer.Answers[0].Score > 95);
             }
         }
     }
