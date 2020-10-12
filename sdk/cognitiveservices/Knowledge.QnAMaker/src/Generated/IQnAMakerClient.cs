@@ -71,10 +71,5 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// </summary>
         IOperations Operations { get; }
 
-        /// <summary>
-        /// Gets the IRuntime.
-        /// </summary>
-        IRuntime Runtime { get; }
-
     }
 }

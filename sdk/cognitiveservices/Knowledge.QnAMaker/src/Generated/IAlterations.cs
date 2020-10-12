@@ -64,8 +64,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// Download alterations per Knowledgebase (QnAMaker Managed).
         /// </summary>
         /// <param name='kbId'>
-        /// Knowledgebase ID required for alterations operations on QnAMaker
-        /// Managed.
+        /// Knowledgebase id.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -82,13 +81,12 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<WordAlterationsDTO>> Get1WithHttpMessagesAsync(string kbId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<WordAlterationsDTO>> GetAlterationsForKbWithHttpMessagesAsync(string kbId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replace alterations data per Knowledgebase (QnAMaker Managed).
         /// </summary>
         /// <param name='kbId'>
-        /// Knowledgebase ID required for alterations operations on QnAMaker
-        /// Managed.
+        /// Knowledgebase id.
         /// </param>
         /// <param name='wordAlterations'>
         /// New alterations data.
@@ -105,6 +103,6 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> Replace1WithHttpMessagesAsync(string kbId, WordAlterationsDTO wordAlterations, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ReplaceAlterationsForKbWithHttpMessagesAsync(string kbId, WordAlterationsDTO wordAlterations, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

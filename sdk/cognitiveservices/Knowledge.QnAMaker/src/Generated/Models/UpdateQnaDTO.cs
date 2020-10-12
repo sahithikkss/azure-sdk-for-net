@@ -102,16 +102,13 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Id != null)
+            if (Id > 2147483647)
             {
-                if (Id > 2147483647)
-                {
-                    throw new ValidationException(ValidationRules.InclusiveMaximum, "Id", 2147483647);
-                }
-                if (Id < 0)
-                {
-                    throw new ValidationException(ValidationRules.InclusiveMinimum, "Id", 0);
-                }
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "Id", 2147483647);
+            }
+            if (Id < 0)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "Id", 0);
             }
             if (Source != null)
             {

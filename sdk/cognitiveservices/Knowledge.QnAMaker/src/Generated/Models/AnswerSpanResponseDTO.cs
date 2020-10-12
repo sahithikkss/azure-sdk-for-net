@@ -34,7 +34,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models
         /// <param name="startIndex">Start index of answer span in
         /// answer.</param>
         /// <param name="endIndex">End index of answer span in answer.</param>
-        public AnswerSpanResponseDTO(string text = default(string), int? score = default(int?), int? startIndex = default(int?), int? endIndex = default(int?))
+        public AnswerSpanResponseDTO(string text = default(string), double? score = default(double?), int? startIndex = default(int?), int? endIndex = default(int?))
         {
             Text = text;
             Score = score;
@@ -58,7 +58,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models
         /// Gets or sets predicted score of answer span.
         /// </summary>
         [JsonProperty(PropertyName = "score")]
-        public int? Score { get; set; }
+        public double? Score { get; set; }
 
         /// <summary>
         /// Gets or sets start index of answer span in answer.

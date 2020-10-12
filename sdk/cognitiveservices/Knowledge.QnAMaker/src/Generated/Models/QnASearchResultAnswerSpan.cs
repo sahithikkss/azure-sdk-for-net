@@ -33,7 +33,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models
         /// <param name="startIndex">Start index of answer span in
         /// answer.</param>
         /// <param name="endIndex">End index of answer span in answer.</param>
-        public QnASearchResultAnswerSpan(string text = default(string), int? score = default(int?), int? startIndex = default(int?), int? endIndex = default(int?))
+        public QnASearchResultAnswerSpan(string text = default(string), double? score = default(double?), int? startIndex = default(int?), int? endIndex = default(int?))
             : base(text, score, startIndex, endIndex)
         {
             CustomInit();

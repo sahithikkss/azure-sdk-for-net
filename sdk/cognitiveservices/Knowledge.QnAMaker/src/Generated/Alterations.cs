@@ -339,7 +339,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// Download alterations per Knowledgebase (QnAMaker Managed).
         /// </summary>
         /// <param name='kbId'>
-        /// Knowledgebase ID required for alterations operations on QnAMaker Managed.
+        /// Knowledgebase id.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -362,7 +362,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<WordAlterationsDTO>> Get1WithHttpMessagesAsync(string kbId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<WordAlterationsDTO>> GetAlterationsForKbWithHttpMessagesAsync(string kbId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.Endpoint == null)
             {
@@ -381,7 +381,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("kbId", kbId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Get1", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GetAlterationsForKb", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -492,7 +492,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// Replace alterations data per Knowledgebase (QnAMaker Managed).
         /// </summary>
         /// <param name='kbId'>
-        /// Knowledgebase ID required for alterations operations on QnAMaker Managed.
+        /// Knowledgebase id.
         /// </param>
         /// <param name='wordAlterations'>
         /// New alterations data.
@@ -515,7 +515,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> Replace1WithHttpMessagesAsync(string kbId, WordAlterationsDTO wordAlterations, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> ReplaceAlterationsForKbWithHttpMessagesAsync(string kbId, WordAlterationsDTO wordAlterations, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.Endpoint == null)
             {
@@ -543,7 +543,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
                 tracingParameters.Add("kbId", kbId);
                 tracingParameters.Add("wordAlterations", wordAlterations);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Replace1", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "ReplaceAlterationsForKb", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;

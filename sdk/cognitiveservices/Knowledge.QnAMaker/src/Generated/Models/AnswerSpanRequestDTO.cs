@@ -77,16 +77,13 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (TopAnswersWithSpan != null)
+            if (TopAnswersWithSpan > 10)
             {
-                if (TopAnswersWithSpan > 10)
-                {
-                    throw new ValidationException(ValidationRules.InclusiveMaximum, "TopAnswersWithSpan", 10);
-                }
-                if (TopAnswersWithSpan < 1)
-                {
-                    throw new ValidationException(ValidationRules.InclusiveMinimum, "TopAnswersWithSpan", 1);
-                }
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "TopAnswersWithSpan", 10);
+            }
+            if (TopAnswersWithSpan < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "TopAnswersWithSpan", 1);
             }
         }
     }

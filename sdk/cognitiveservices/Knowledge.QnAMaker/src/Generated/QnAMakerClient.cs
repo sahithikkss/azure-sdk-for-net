@@ -76,11 +76,6 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         public virtual IOperations Operations { get; private set; }
 
         /// <summary>
-        /// Gets the IRuntime.
-        /// </summary>
-        public virtual IRuntime Runtime { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the QnAMakerClient class.
         /// </summary>
         /// <param name='httpClient'>
@@ -212,7 +207,6 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
             Alterations = new Alterations(this);
             Knowledgebase = new Knowledgebase(this);
             Operations = new Operations(this);
-            Runtime = new Runtime(this);
             BaseUri = "{Endpoint}/qnamaker/v5.0-preview.1";
             SerializationSettings = new JsonSerializerSettings
             {
