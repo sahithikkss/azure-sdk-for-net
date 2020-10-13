@@ -16,22 +16,16 @@ namespace QnAMaker.Tests
         {
             using (MockContext context = MockContext.Start(this.GetType()))
             {
-                HttpMockServer.Initialize(this.GetType(), "QnAMakerRuntimeGenerateAnswerTest", HttpRecorderMode.Record);
-
+                HttpMockServer.Initialize(this.GetType(), "QnAMakerRuntimeGenerateAnswerTest");
                 var client = GetQnAMakerClient(HttpMockServer.CreateInstance());
                 var queryDTO = new QueryDTO();
                 queryDTO.Question = "tell me";
                 queryDTO.IsTest = true;
-                queryDTO.Top = 3;
-                queryDTO.ScoreThreshold = 60.0;
-                queryDTO.StrictFiltersCompoundOperationType = StrictFiltersCompoundOperationType.OR;
-                queryDTO.StrictFilters = new List<MetadataDTO>();
-                queryDTO.StrictFilters.Add(new MetadataDTO("timeoftheday", "morning"));
-                queryDTO.StrictFilters.Add(new MetadataDTO("timeoftheday", "forenoon"));
+                queryDTO.Top = 10;
                 queryDTO.AnswerSpanRequest = new QueryDTOAnswerSpanRequest
                 {
                     Enable = true,
-                    ScoreThreshold = 50.0,
+                    ScoreThreshold = 10.0,
                     TopAnswersWithSpan = 3
                 };
 
@@ -41,9 +35,12 @@ namespace QnAMaker.Tests
                     PreviousUserQuery = ""
                 };
 
-                var answer = client.Knowledgebase.GenerateAnswerAsync("c2d2d1f5-1e94-4394-b235-d0f37c7090b0", queryDTO).Result;
-                Assert.Equal(2, answer.Answers.Count);
+                var answer = client.Knowledgebase.GenerateAnswerAsync("0667a3c4-fd61-4f13-9ada-a7fc0e257112", queryDTO).Result;
+                Assert.Equal(3, answer.Answers.Count);
                 Assert.True(answer.Answers[0].Score > 95);
+                Assert.NotNull(answer.Answers[0].AnswerSpan);
+                Assert.NotNull(answer.Answers[2].Context);
+                Assert.NotNull(answer.Answers[2].Context.Prompts);
             }
         }
     }
