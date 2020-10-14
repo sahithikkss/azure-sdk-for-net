@@ -40,6 +40,11 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         string Endpoint { get; set; }
 
         /// <summary>
+        /// The base URI of the service.
+        /// </summary>
+        string BaseUri { get; set; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client
         /// subscription.
         /// </summary>

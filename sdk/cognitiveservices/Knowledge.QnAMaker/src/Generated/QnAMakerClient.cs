@@ -15,8 +15,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
-    using System.Collections.Generic;
-    using System.Net;
+    using System.Collections.Generic;    
     using System.Net.Http;
 
     /// <summary>
@@ -27,7 +26,7 @@ namespace Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker
         /// <summary>
         /// The base URI of the service.
         /// </summary>
-        internal string BaseUri {get; set;}
+        public string BaseUri {get; set;}
 
         /// <summary>
         /// Gets or sets json serialization settings.
